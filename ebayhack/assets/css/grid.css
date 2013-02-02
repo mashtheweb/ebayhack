@@ -1,3 +1,199 @@
-@charset "utf-8";
-/* CSS Document */
+/* ===== Grid Structure ========================================
+   Author: D. Shavin Fonseka
+   Site: shavindra.worpdress.com
+   Location: London, UK
+   Contact: shvindra2001 [at] yahoo.co.uk
+   Twitter: twitter.com/shavindra
+   linkedIn: linkd.in/shavin
+   
+   Design Agency: JagoPartners
+   Site: jagopartners.com
+   Contact: hello@jagopartners.com
+   ============================================================= 
+   
+   ===== Table of Content ======================================
+   		
+		1. Reset CSS
+		2. Grid
+		3. Typogrpahy
+		4. Forms
+		5. Generic
+		6. Media Queries
+			6.1	asdasd
+			6.2
+   
+*/
 
+
+
+/*		1. RESET CSS
+
+		http://meyerweb.com/eric/tools/css/reset/  
+		v2.0 | 20110126
+		License: none (public domain)
+   ============================================================= */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}  
+   
+/* General */
+.col {
+	background: #eeeeee;
+	height: 100px;
+	float: left;
+	margin: 0 0 0 18px
+}
+
+section:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	font-size: 0;	
+}
+
+
+/*		2. GRID
+
+		Default Layout: 990px (FIXED). 
+		Gutters: 18px.
+		Outer margins: 49px.
+		Leftover space for scrollbars @1024px: 32px.
+ ==============================================================
+cols    1     2      3      4      5      6      7      8      
+px      68    160    252    344    436    528    620    712        */
+
+
+.wrapper990 {
+	width: 990px;
+	margin: 0 auto;
+}
+/* Full width */
+.grid-1 {
+	width: 990px; /* 100% */
+	margin: 0 auto ;
+}
+/* 2 Col grid */
+.grid-2 {
+	width: 486px;
+}
+.grid-2:first-child {
+	margin: 0;
+}
+/* 2 Col grid */
+.grid-3 {
+	width: 318px;
+}
+.grid-3:first-child {
+	margin: 0;
+}
+/* 4 Col grid */
+.grid-4 {
+	width: 234px;
+	margin: 0 0 0 18px
+}
+.grid-4:first-child {
+	margin: 0;
+}
+/* Asides */
+.grid-3col {
+	width: 738px;
+}
+
+/* 8 Column Grid layout */
+
+.col1 {
+    width: 108px;
+}
+.col2 {
+    width: 234px;
+}
+.col3 {
+    width: 360px;
+}
+.col4 {
+    width: 486px;
+}
+.col5 {
+    width: 612px;
+}
+.col6 {
+    width: 738px;
+}
+.col7 {
+    width: 864px;
+}
+.col8 {
+    width: 990px;
+}
+
+/* General */
+section.grid-1 {
+	margin:0 0 18px 0; /* Fix the issue of grid-1 over riding the margin */
+	
+}
+
+.col:first-child {
+margin:0;	
+}
+
+
+
+/*		2. TYPOGRAPHY
+
+		Embed Ref: http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax
+		
+ ============================================================== */
+
+/* Font face
+
+*/
+@font-face {
+	font-family: 'MyFontFamily';
+	src: url('myfont.eot?#iefix') format('embedded-opentype'), 
+	     url('myfont.woff') format('woff'), 
+	     url('myfont.ttf')  format('truetype'),
+	     url('myfont.svg#svgFontName') format('svg');
+	}
