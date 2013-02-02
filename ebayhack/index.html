@@ -20,12 +20,13 @@
 <div class="page grid-1">
   <div id="header-container">
     <header class="wrapper clearfix">
-      <h1 id="title">Ebay logo</h1>
+      <h1 id="title"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/EBay_former_logo.svg/200px-EBay_former_logo.svg.png" width="121" height="48"></h1>
       <h2>My eBay: Analytics</h2>
     </header>
   </div>
   <div id="main-container">
     <div class="right col col2">
+    <input type="text" class="search" placeholder="enter keywords" />
       <ul>
         <li id="status">Status
           <menu>
@@ -66,8 +67,8 @@
         <!-- 2 Column -->
         <div class="map">
           <div id='map_canvas'></div>
-          <!--<button id="btn_run">run</button>-->
-          <div id="div_result"> </div>
+          <!--<button id="btn_run">run</button>
+          <div id="div_result"> </div>-->
         </div>
         <footer class="matrix">
           <ul>
@@ -106,7 +107,7 @@
 
             function drawMap() {
                 var data = google.visualization.arrayToDataTable([
-                    ['Country', 'Popularity'],
+                    ['Country', 'Average Price'],
                     ['Russia', 200],
                     ['France', 700]
                 ]);

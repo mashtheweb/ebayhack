@@ -134,7 +134,13 @@ font-size:1.4em;
 }
 
 .search {
-	
+width:186px;
+margin:18px;
+padding:5px;
 background:#FFF;
 border:1px solid #666;	
+}
+
+h1{
+margin:-8px 0 10px 0;	
 }
