@@ -114,8 +114,27 @@ margin:0 0 18px 0;
 
 embed {
 width:100%;	
+background:#eaf7fe;
+height:347px;
+display:block;
 }
 
+.map {
+width:738px;
+background:#eaf7fe;
+height:347px;
+display:block;
+}
 footer {
 margin:18px 0 0 0;	
+}
+
+.value {
+font-size:1.4em;	
+}
+
+.search {
+	
+background:#FFF;
+border:1px solid #666;	
 }
