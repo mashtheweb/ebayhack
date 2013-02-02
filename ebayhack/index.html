@@ -30,30 +30,30 @@
         <li id="status">Status
           <menu>
             <p id="1" class="on">
-              <input type="checkbox" id="">
+              <input type="checkbox" id="current">
               Current</p>
             <p id="historic">
-              <input type="checkbox" id="">
+              <input type="checkbox" id="history">
               Historic</p>
           </menu>
         </li>
         <li id="country">Country
           <menu>
             <p id="1">
-              <input type="checkbox" id="">
-              UK</p>
+                <input type="checkbox" id="russia" checked>
+              Russia</p>
             <p id="historic">
-              <input type="checkbox" id="">
-              Germany</p>
+              <input type="checkbox" id="france" checked>
+              france</p>
           </menu>
         </li>
         <li id="condition">condition
           <menu>
             <p id="1">
-              <input type="checkbox" id="">
+              <input type="checkbox" id="new">
               New</p>
             <p id="historic">
-              <input type="checkbox" id="">
+              <input type="checkbox" id="used">
               Used</p>
           </menu>
         </li>
@@ -79,7 +79,7 @@
           </ul>
         </footer>
       </section>
-      <section class="grid-1">
+      <section class="">
         <h2>Product Listing</h2>
         <div class="item">Item</div>
         <div class="item">Item</div>
@@ -97,7 +97,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> 
 <script type='text/javascript' src='https://www.google.com/jsapi'></script> 
 <script src="http://code.jquery.com/ui/1.7.2/jquery-ui.js"></script> 
-<script>
+   <script>
     
             var geomap=null;
             var options = {};
@@ -107,12 +107,8 @@
             function drawMap() {
                 var data = google.visualization.arrayToDataTable([
                     ['Country', 'Popularity'],
-                    ['Germany', 200],
-                    ['United States', 300],
-                    ['Brazil', 400],
-                    ['Canada', 500],
-                    ['France', 600],
-                    ['RU', 700]
+                    ['Russia', 200],
+                    ['France', 700]
                 ]);
 
       
@@ -129,7 +125,7 @@
             $(document).ready(function() {
   
                 $("#btn_run").click(function(){
-                    hello = UpdateMap();
+                    hello = UpdateMap2(3);
                         
                     hello=  google.visualization.arrayToDataTable(    GenerateDataSetArray(hello.result.data));
       
@@ -138,6 +134,92 @@
                     geomap.draw(hello, options);
                     
                 });
+                
+                 
+                
+                  if($("#history").click(function(){
+                    if($("#history").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  if($("#russia").click(function(){
+                    if($("#russia").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  if($("#france").click(function(){
+                    if($("#france").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  
+                   if($("#history").click(function(){
+                    if($("#history").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  
+                   if($("#current").click(function(){
+                    if($("#current").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  
+                   if($("#new").click(function(){
+                    if($("#new").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                  
+                   if($("#used").click(function(){
+                    if($("#used").is(':checked')){
+                        $(this).toggleClass("on");
+                           
+                          }else{
+                              $(this).toggleClass("on");
+                          }  
+                          
+                          FilterData();
+                      
+                  }));
+                       
+                
                 // Handler for .ready() called.
             });
                 
@@ -172,66 +254,81 @@
                 
             function UpdateMap(){
                     
+                    
                 productDataCurrentNew = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                            //{"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
                         ], "conditionStatus": "new", "timeStatus":"Current"}};
                 productDataCurrentUsed = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                            //{"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
                         ], "conditionStatus": "used", "timeStatus":"Current"}};
                     
                 productDataHistoryNew = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                           // {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
                         ], "conditionStatus": "new", "timeStatus":"History"}};
                 productData = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                            //{"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
                         ], "conditionStatus": "used", "timeStatus":"History"}};
                 
                 
                 return productData;
             }
             
-            function UpdateMap2(){
+            function UpdateMap2(condition){
                     
+                   
                 productDataCurrentNew = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                      //      {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                        //    {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
                         ], "conditionStatus": "new", "timeStatus":"Current"}};
                 productDataCurrentUsed = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"350"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"379"},
+                          //  {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"299"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"300"}  
                         ], "conditionStatus": "used", "timeStatus":"Current"}};
                     
                 productDataHistoryNew = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"550"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"579"},
+                            //{"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"499"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"500"}  
                         ], "conditionStatus": "new", "timeStatus":"History"}};
                 productDataHistoryUsed = {result:{data:[
-                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
-                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
-                            {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
-                            {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                            {"Country":"Russia", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"200"},
+                            {"Country":"France", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"250"},
+                            //{"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"220"},
+                            //{"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"350"}  
                         ], "conditionStatus": "used", "timeStatus":"History"}};
                 
                 
-                return [productDataCurrentNew,productDataCurrentUsed,productDataHistoryNew,productDataHistoryUsed];
+                //return [productDataCurrentNew,productDataCurrentUsed,productDataHistoryNew,productDataHistoryUsed];
+                
+                if(condition=="1"){
+                    product =productDataCurrentNew;
+                 
+                }else if(condition=="2"){
+                    product =productDataCurrentUsed;
+                }
+                else if(condition=="3"){
+                    product =productDataHistoryNew;
+                }else if(condition=="4"){
+                    product =productDataHistoryUsed;
+                }
+                return product;
             }
 
 
@@ -239,8 +336,56 @@
                 conditionStatus = "n"; //N , U, Both
                 timeStatus = "c";//C or H, Both
                 countryArray=new Array();
-                   
+                     hello = UpdateMap2(3);
+                     
+                      if($("#history").is(':checked')){
+                     hello = UpdateMap2(1);
+                          
+                      }else if($("#current").is(':checked')){
+                          hello = UpdateMap2(2);
+                     
+                      }else if($("#used").is(':checked')){
+                     hello = UpdateMap2(3);
+                          
+                      }else{
+                          hello = UpdateMap2(4);
+                     
+                      }
+                        
+                        dataset = hello.result.data;
+                         
+                        $.each(dataset, function(index) {
+                            //alert(dataset);
+                        
+                        if(!$("#france").is(':checked')){
+      if(dataset[index].Country == "France") {
+          //Remove from array
+           dataset[index].Country="";
+      }
+                       
+                        }
+                        if(!$("#russia").is(':checked')){
+      if(dataset[index].Country == "Russia") {
+          //Remove from array
+           dataset[index].Country="";
+      }
+                       
+                        }
+                        });
+                        
+                        dataset= GenerateDataSetArray(dataset);
+                    hello=  google.visualization.arrayToDataTable( dataset  );
+      
+                 
+                    options["colors"] =  [0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747];
+                    geomap.draw(hello, options);
+                    
             }
+            
+          
+       
+   
+
         </script>
 </body>
 </html>
