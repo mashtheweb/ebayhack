@@ -1,0 +1,146 @@
+/*		1. RESET CSS
+
+		http://meyerweb.com/eric/tools/css/reset/  
+		v2.0 | 20110126
+		License: none (public domain)
+   ============================================================= */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font: 62.5% Arial, Helvetica, sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* General */
+.col {
+	background: #eeeeee;
+	height: 100px;
+	float: left;
+	margin: 0 0 0 18px
+}
+section:after, ul:after, .right:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+}
+.page {
+}
+.content {
+	background: none repeat scroll 0 0 #EBEBEB;
+	margin-left: 155px;
+	min-width: 875px;
+	overflow: hidden;
+}
+ul {
+	padding: 18px;
+	display: block;
+	background: none repeat scroll 0 0 #EBEBEB;
+}
+li {
+	margin: 20px 0 0 0;
+	display: block;
+	font-size: 1.2em
+}
+li menu {
+	font-size: 0.9em;
+}
+li menu > * {
+	margin: 5px 0 0 0;
+	display: block;
+}
+menu > * {
+	display: block;
+}
+
+
+h2 {
+padding:18px;
+font-size:2em;
+background: none repeat scroll 0 0 #EBEBEB;
+	
+}
+
+header {
+padding:18px 0;	
+}
+
+footer ul {
+padding:0;
+background:none;	
+}
+
+footer li {
+	
+text-align:center;	
+}
+
+footer li span {
+padding:10px;
+display:block;	
+}
+
+section {
+	
+margin:0 0 18px 0;	
+
+}
+
+embed {
+width:100%;	
+background:#eaf7fe;
+height:347px;
+display:block;
+}
+
+.map {
+width:738px;
+background:#eaf7fe;
+height:347px;
+display:block;
+}
+footer {
+margin:18px 0 0 0;	
+}
+
+.value {
+font-size:1.4em;	
+}
+
+.search {
+width:186px;
+margin:18px;
+padding:5px;
+background:#FFF;
+border:1px solid #666;	
+}
+
+h1{
+margin:-8px 0 10px 0;	
+}
