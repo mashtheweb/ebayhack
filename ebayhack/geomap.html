@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
+        <script type='text/javascript'>
+
+            var geomap=null;
+            var options = {};
+            google.load('visualization', '1', {'packages': ['geomap']});
+            google.setOnLoadCallback(drawMap);
+
+            function drawMap() {
+                var data = google.visualization.arrayToDataTable([
+                          ['Country', 'Popularity'],
+                             ['Germany', 200],
+        ['United States', 300],
+        ['Brazil', 400],
+        ['Canada', 500],
+        ['France', 600],
+        ['RU', 700]
+                ]);
+
+      
+                
+options['showZoomOut']=true;
+
+                var container = document.getElementById('map_canvas');
+                geomap = new google.visualization.GeoMap(container);
+                geomap.draw(data, options);
+      
+                
+            };
+  
+  $(document).ready(function() {
+  
+                    $("#btn_run").click(function(){
+                        hello = UpdateMap();
+                        
+                          hello=  google.visualization.arrayToDataTable(    GenerateDataSetArray(hello.result.data));
+      
+                 
+                        options["colors"] =  [0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747, 0xFF8747];
+                        geomap.draw(hello, options);
+                    
+                    });
+                    // Handler for .ready() called.
+                });
+                
+                function GenerateDataSetArray(result){
+                    sb="<table id='tbl_result'>";
+                    sb=sb+"<tr><td>Country</td><td>Total</td><td>Highest</td><td>Lowest</td><td>Average</td></tr>"
+                 arr = new Array();
+                  arr.push( ['Country', 'Popularity']);
+                 $.each(result, function(i) {
+                     sb = sb+ "<tr>";
+                     sb = sb+ "<td>";
+ sb = sb+ result[i].Country;
+                    sb = sb+ "</td>";
+                    sb = sb+ "<td>";
+ sb = sb+ result[i].TotalItem;
+                    sb = sb+ "</td>";
+                    sb = sb+ "<td>";
+ sb = sb+ result[i].Highest;
+                    sb = sb+ "</td>";
+                    sb = sb+ "<td>";
+ sb = sb+ result[i].Lowerest;
+                    sb = sb+ "</td>";
+                     sb = sb+ "</tr>";
+                        // alert(result[i].product);
+                         arr.push([result[i].Country,result[i].Average]);
+                     });
+                     sb = sb + "</table>";
+                     $("#div_result").html(sb);
+            return arr;    
+            }
+                
+                
+                function UpdateMap(){
+                    
+                    productData = {result:{data:[
+                            {"Country":"China", "product":"iPhone5","TotalItem":"100", "Highest":"799", "Lowerest":"299", "Average":"450"},
+                            {"Country":"UK", "product":"iPhone5","TotalItem":"1000", "Highest":"699", "Lowerest":"399", "Average":"479"},
+                             {"Country":"US", "product":"iPhone5","TotalItem":"2000", "Highest":"650", "Lowerest":"350", "Average":"399"},
+                              {"Country":"Japan", "product":"iPhone5","TotalItem":"200", "Highest":"699", "Lowerest":"359", "Average":"400"}  
+                        ]}};
+                    return productData;
+                }
+                
+        </script>
+    </head>
+
+    <body>
+        <div id='map_canvas'></div>
+        <button id="btn_run">run</button>
+        
+        <div id="div_result">
+            
+        </div>
+    </body>
+
+</html>
