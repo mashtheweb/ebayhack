@@ -1,0 +1,13 @@
+body {
+	
+width:100%;	
+}
+
+
+
+.content {
+    background: none repeat scroll 0 0 #EBEBEB;
+    margin-left: 155px;
+    min-width: 875px;
+    overflow: hidden;
+}
