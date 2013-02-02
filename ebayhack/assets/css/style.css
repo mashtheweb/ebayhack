@@ -1,6 +1,7 @@
 body {
 	
 width:100%;	
+font:62.5% Arial, Helvetica, sans-serif;
 }
 
 
@@ -12,4 +13,8 @@ width:100%;
     margin-left: 155px;
     min-width: 875px;
     overflow: hidden;
+}
+
+ul {
+padding:18px;	
 }
